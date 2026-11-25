@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Istima' Mandiri — Pusat Perbelanjaan (الْمُجَمَّعُ التِّجَارِيُّ)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            arabic: ['Amiri', 'Traditional Arabic', 'Scheherazade New', 'Times New Roman', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            },
+            accent: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Arabic text rendering and RTL isolation */
+    .ar-text {
+      font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', 'Times New Roman', serif;
+      direction: rtl;
+      unicode-bidi: isolate;
+      line-height: 2.05;
+    }
+    .ar-inline {
+      font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', 'Times New Roman', serif;
+      direction: rtl;
+      unicode-bidi: isolate;
+      line-height: 1.7;
+    }
+    /* Highlight chips inside Arabic dialogue for 'adad-ma'dud and Rupiah prices */
+    .hl-num {
+      background-color: #fef3c7;
+      color: #92400e;
+      padding: 0.05rem 0.4rem;
+      border-radius: 0.375rem;
+      border-bottom: 2px solid #f59e0b;
+      font-weight: 700;
+    }
+    .hl-price {
+      background-color: #ccfbf1;
+      color: #115e59;
+      padding: 0.05rem 0.4rem;
+      border-radius: 0.375rem;
+      border-bottom: 2px solid #0d9488;
+      font-weight: 700;
+    }
+    /* Active speaking pulse animation */
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.45); }
+      70% { box-shadow: 0 0 0 10px rgba(13, 148, 136, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); }
+    }
+    .speaking-active {
+      animation: pulseRing 1.6s infinite;
+      border-color: #0d9488 !important;
+      background-color: #f0fdfa !important;
+    }
+    /* Smooth sticky section navigation scrollbar on mobile */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-200 selection:text-brand-900">
+
+  <!-- Top Sticky Navigation Bar -->
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-3">
+      <a href="#top" class="flex items-center gap-2.5 shrink-0">
+        <span class="w-8 h-8 rounded-xl bg-brand-700 text-white flex items-center justify-center font-bold text-sm shadow-sm">🎧</span>
+        <div class="leading-tight">
+          <span class="block text-sm font-bold text-slate-900">Istima' Mandiri</span>
+          <span class="block text-[11px] font-medium text-brand-700">Kelas XI / 2 MA • TAM02</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 text-xs sm:text-sm font-medium">
+        <a href="#alur" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-brand-700 hover:bg-brand-50 whitespace-nowrap transition">Alur Belajar</a>
+        <a href="#hiwar" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-brand-700 hover:bg-brand-50 whitespace-nowrap transition">الحِوَارُ (Dialog)</a>
+        <a href="#mufradat" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-brand-700 hover:bg-brand-50 whitespace-nowrap transition">الْمُفْرَدَاتُ</a>
+        <a href="#qawaid" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-brand-700 hover:bg-brand-50 whitespace-nowrap transition">الْعَدَدُ وَالْمَعْدُودُ</a>
+        <a href="#latihan" class="px-3 py-1.5 rounded-lg bg-brand-700 text-white hover:bg-brand-800 whitespace-nowrap transition shadow-xs">Latihan Soal</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Header & Identity + Learning Flow -->
+  <header id="top" class="relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-800 to-slate-900 text-white">
+    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+        <div class="max-w-3xl space-y-4">
+          <div class="inline-flex flex-wrap items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3.5 py-1 text-xs font-medium text-brand-100">
+            <span>Madrasah Aliyah • Kelas 2 MA / XI Semester Genap</span>
+            <span aria-hidden="true">•</span>
+            <span>Unit TAM02</span>
+            <span aria-hidden="true">•</span>
+            <span>Penyusun: Rosita Hayati (240202099)</span>
+          </div>
+
+          <div class="space-y-2">
+            <p class="ar-text text-3xl sm:text-4xl font-bold text-amber-300">الاسْتِمَاعُ — الْمُجَمَّعُ التِّجَارِيُّ</p>
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+              Media Istima' Mandiri: Pusat Perbelanjaan
+            </h1>
+          </div>
+
+          <p class="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl">
+            Media pembelajaran menyimak mandiri berbasis audio interaktif untuk melatih pemahaman isi dialog jual beli, pelafalan kosakata berharakat, kaidah <span class="italic text-amber-200">'adad-ma'dud</span>, dan nominal harga dalam Rupiah (<span class="ar-inline text-amber-200">رُوبِيَّةٍ</span>).
+          </p>
+        </div>
+
+        <!-- Audio Engine Status & Quick Action Card -->
+        <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 lg:w-80 shrink-0 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold uppercase tracking-wider text-brand-200">Status Audio Arab</span>
+            <span id="tts-status-badge" class="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-400/20 text-emerald-200 border border-emerald-300/30">
+              <span class="w-2 h-2 rounded-full bg-emerald-300"></span>
+              Siap Diputar
+            </span>
+          </div>
+          <p id="tts-status-desc" class="text-xs text-slate-200 leading-relaxed">
+            Menggunakan fitur suara bahasa Arab (<code class="text-amber-200">ar-SA</code>) bawaan perangkat Anda. Pastikan volume HP/laptop aktif.
+          </p>
+          <div id="tts-fallback-note" class="hidden text-[11px] bg-amber-500/20 border border-amber-300/40 text-amber-100 rounded-xl p-2.5 leading-relaxed">
+            Jika suara Arab belum terpasang di perangkat, gunakan mode baca naskah berharakat &amp; latihan di bawah, atau aktifkan paket bahasa Arab (Arabic / ar-SA) di pengaturan TTS perangkat.
+          </div>
+          <a href="#hiwar" class="w-full inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm py-2.5 px-4 rounded-xl transition shadow">
+            <span>▶</span>
+            <span>Mulai Simak Dialog</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4-Step Learning Flow Guide -->
+      <div id="alur" class="mt-10 pt-8 border-t border-white/15">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm sm:text-base font-bold uppercase tracking-wider text-brand-200">
+            Alur Belajar Mandiri (4 Langkah)
+          </h2>
+          <span class="text-xs text-slate-300">Cocok untuk akses via Kode QR di kelas/rumah</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition">
+            <div class="flex items-center gap-2.5 mb-2">
+              <span class="w-7 h-7 rounded-lg bg-amber-400 text-slate-950 font-extrabold text-xs flex items-center justify-center">1</span>
+              <h3 class="font-bold text-sm text-white">Simak Audio</h3>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Sembunyikan teks Arab terlebih dahulu, putar dialog, lalu tangkap barang dan harga yang disebut.
+            </p>
+          </div>
+          <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition">
+            <div class="flex items-center gap-2.5 mb-2">
+              <span class="w-7 h-7 rounded-lg bg-brand-400 text-slate-950 font-extrabold text-xs flex items-center justify-center">2</span>
+              <h3 class="font-bold text-sm text-white">Baca Naskah Berharakat</h3>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Tampilkan naskah berharakat lengkap sambil menyimak ulang audio dan perhatikan sorotan bilangan serta harga.
+            </p>
+          </div>
+          <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition">
+            <div class="flex items-center gap-2.5 mb-2">
+              <span class="w-7 h-7 rounded-lg bg-brand-400 text-slate-950 font-extrabold text-xs flex items-center justify-center">3</span>
+              <h3 class="font-bold text-sm text-white">Latih Pelafalan</h3>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Tirukan pelafalan tiap kalimat dan kartu kosakata dengan kecepatan normal (1.0x) atau pelan (0.8x).
+            </p>
+          </div>
+          <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition">
+            <div class="flex items-center gap-2.5 mb-2">
+              <span class="w-7 h-7 rounded-lg bg-brand-400 text-slate-950 font-extrabold text-xs flex items-center justify-center">4</span>
+              <h3 class="font-bold text-sm text-white">Kerjakan Latihan</h3>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Uji pemahaman menyimak melalui kuis Benar/Salah dan pilihan ganda barang, jumlah, serta harga Rupiah.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-14">
+
+    <!-- 2. Interactive Dialog & Audio Player -->
+    <section id="hiwar" class="scroll-mt-16 space-y-5">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-700">Bagian Utama • Menyimak &amp; Melafalkan</span>
+          <div class="flex flex-wrap items-baseline gap-3 mt-1">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Dialog Belanja Interaktif</h2>
+            <span class="ar-inline text-2xl sm:text-3xl font-bold text-brand-700">الْحِوَارُ فِي الْمُجَمَّعِ التِّجَارِيِّ</span>
+          </div>
+          <p class="text-sm text-slate-600 mt-1">
+            Percakapan 10 kalimat antara pembeli (<span class="ar-inline font-bold text-brand-800">الْمُشْتَرِيَةُ</span>) dan penjual (<span class="ar-inline font-bold text-amber-800">الْبَائِعُ</span>) di pusat perbelanjaan.
+          </p>
+        </div>
+
+        <!-- Legend for Highlights -->
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-semibold border border-amber-200">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+            'Adad-Ma'dud (Jumlah)
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-teal-100 text-teal-900 font-semibold border border-teal-200">
+            <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span>
+            Harga Rupiah (رُوبِيَّةٍ)
+          </span>
+        </div>
+      </div>
+
+      <!-- Sticky/Elevated Audio Control Bar -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-sm space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <!-- Play All & Stop Controls -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            <button id="btn-play-all" type="button" onclick="playAllDialogue()" class="inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 active:scale-[0.99] text-white font-semibold text-sm px-4 py-2.5 rounded-xl transition shadow-sm cursor-pointer">
+              <span>▶</span>
+              <span>Putar Semua Dialog</span>
+            </button>
+            <button id="btn-stop-audio" type="button" onclick="stopPlayback()" class="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm px-3.5 py-2.5 rounded-xl transition cursor-pointer">
+              <span>⏹</span>
+              <span>Hentikan</span>
+            </button>
+
+            <!-- Speed Toggle (0.8x / 1.0x) -->
+            <div class="inline-flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200" role="group" aria-label="Kecepatan Audio">
+              <button id="speed-08" type="button" onclick="setSpeechRate(0.8)" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer">
+                0.8x Pelan
+              </button>
+              <button id="speed-10" type="button" onclick="setSpeechRate(1.0)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-brand-800 shadow-xs transition cursor-pointer">
+                1.0x Normal
+              </button>
+            </div>
+          </div>
+
+          <!-- Hide/Show Toggles for Authentic Listening Practice -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="btn-toggle-arabic" type="button" onclick="toggleArabicVisibility()" class="inline-flex items-center gap-2 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 font-semibold text-xs sm:text-sm px-3.5 py-2 rounded-xl transition cursor-pointer">
+              <span id="icon-arabic">🙈</span>
+              <span id="label-arabic">Sembunyikan Teks Arab</span>
+            </button>
+            <button id="btn-toggle-translation" type="button" onclick="toggleTranslationVisibility()" class="inline-flex items-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs sm:text-sm px-3.5 py-2 rounded-xl transition cursor-pointer">
+              <span id="icon-trans">🌐</span>
+              <span id="label-trans">Sembunyikan Terjemahan</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Active Playback Progress Banner -->
+        <div id="now-playing-bar" class="flex items-center justify-between gap-3 bg-slate-50 border border-slate-200/80 rounded-xl px-3.5 py-2.5 text-xs text-slate-600">
+          <div class="flex items-center gap-2">
+            <span id="now-playing-dot" class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
+            <span id="now-playing-text" class="font-medium">Klik tombol putar pada baris manapun atau "Putar Semua Dialog" untuk menyimak.</span>
+          </div>
+          <span id="now-playing-counter" class="font-mono font-semibold text-brand-700 shrink-0">0 / 10</span>
+        </div>
+      </div>
+
+      <!-- 10 Dialogue Lines Container -->
+      <div id="dialogue-list" class="space-y-3.5"></div>
+    </section>
+
+    <!-- 3. Vocabulary Flashcards with Audio -->
+    <section id="mufradat" class="scroll-mt-16 space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-700">Kosakata Inti • Pelafalan &amp; Makna</span>
+          <div class="flex flex-wrap items-baseline gap-3 mt-1">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Kartu Kosakata Bersuara</h2>
+            <span class="ar-inline text-2xl sm:text-3xl font-bold text-brand-700">الْمُفْرَدَاتُ الْأَسَاسِيَّةُ</span>
+          </div>
+          <p class="text-sm text-slate-600 mt-1">
+            Tekan kartu atau tombol suara untuk mendengarkan pelafalan kosakata pusat perbelanjaan dan catatan gramatika/konteksnya.
+          </p>
+        </div>
+        <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-brand-50 text-brand-800 border border-brand-200 self-start sm:self-auto">
+          10 Kosakata Pilihan
+        </span>
+      </div>
+
+      <div id="vocabulary-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"></div>
+    </section>
+
+    <!-- 4. Grammar Quick Guide ('Adad-Ma'dud & Rupiah) -->
+    <section id="qawaid" class="scroll-mt-16 space-y-5">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-700">Ringkasan Kaidah • Qawa'id</span>
+        <div class="flex flex-wrap items-baseline gap-3 mt-1">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Panduan Cepat 'Adad-Ma'dud &amp; Rupiah</h2>
+          <span class="ar-inline text-2xl sm:text-3xl font-bold text-brand-700">الْعَدَدُ وَالْمَعْدُودُ</span>
+        </div>
+        <p class="text-sm text-slate-600 mt-1">
+          Pahami aturan bilangan (<span class="italic">'adad</span>) dan benda yang dibilang (<span class="italic">ma'dud</span>) serta penyebutan harga Rupiah (<span class="ar-inline font-bold text-brand-800">رُوبِيَّةٍ</span>) yang muncul dalam dialog belanja.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Rule 1-2 -->
+        <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-lg bg-brand-50 text-brand-800 text-xs font-bold">
+              <span>Bilangan 1 – 2</span>
+              <span class="ar-inline">وَاحِدٌ / اثْنَانِ</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">Sesuai Jenis (Mudzakkar / Muannats)</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Untuk bilangan <strong>1 dan 2</strong>, <span class="italic">'adad</span> mengikuti jenis <span class="italic">ma'dud</span>-nya (sama-sama <em>mudzakkar</em> atau sama-sama <em>muannats</em>), dan posisinya berada setelah <span class="italic">ma'dud</span>.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Contoh Dialog</span>
+              <button type="button" onclick="speakArabic('كِيلُو غْرَامًا وَاحِدًا مِنَ السُّكَّرِ', this)" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-700 hover:text-brand-900 bg-white border border-brand-200 px-2.5 py-1 rounded-lg cursor-pointer transition">
+                <span>🔊</span>
+                <span>Dengar</span>
+              </button>
+            </div>
+            <p class="ar-text text-xl font-bold text-slate-900">كِيلُو غْرَامًا وَاحِدًا</p>
+            <p class="ar-text text-lg text-brand-800">لِتْرٌ وَاحِدٌ مِنَ الزَّيْتِ</p>
+            <p class="text-xs text-slate-600">"Satu kilogram" &amp; "Satu liter minyak" (<em>mudzakkar</em> + <em>mudzakkar</em>).</p>
+          </div>
+        </article>
+
+        <!-- Rule 3-10 -->
+        <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-lg bg-amber-50 text-amber-900 text-xs font-bold">
+              <span>Bilangan 3 – 10</span>
+              <span class="ar-inline">ثَلَاثَةٌ – عَشَرَةٌ</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">Berlawanan Jenis &amp; Jamak Majrur</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Untuk bilangan <strong>3 sampai 10</strong>, <span class="italic">ma'dud</span> berbentuk <strong>jamak majrur</strong> (atau satuan takaran/wadah jamak) dan jenis <span class="italic">'adad</span> berlawanan dengan bentuk <em>mufrad</em>-nya.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Contoh Dialog</span>
+              <button type="button" onclick="speakArabic('ثَلَاثَةَ كِيلُو غْرَامَاتٍ وَأَرْبَعَ حَبَّاتٍ مِنَ الْبَصَلِ', this)" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-700 hover:text-brand-900 bg-white border border-brand-200 px-2.5 py-1 rounded-lg cursor-pointer transition">
+                <span>🔊</span>
+                <span>Dengar</span>
+              </button>
+            </div>
+            <p class="ar-text text-xl font-bold text-slate-900">ثَلَاثَةَ كِيلُو غْرَامَاتٍ</p>
+            <p class="ar-text text-lg text-amber-800">أَرْبَعَ حَبَّاتٍ مِنَ الْبَصَلِ</p>
+            <p class="text-xs text-slate-600">"Tiga kilogram" &amp; "Empat butir bawang" (<span class="ar-inline">حَبَّةٌ</span> muannats → <span class="ar-inline">أَرْبَعَ</span> tanpa <em>ta marbuthah</em>).</p>
+          </div>
+        </article>
+
+        <!-- Rule Rupiah Price -->
+        <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-lg bg-teal-50 text-teal-900 text-xs font-bold">
+              <span>Satuan Harga</span>
+              <span class="ar-inline">رُوبِيَّةٍ</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">Menyatakan Harga Rupiah</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Dalam bahasa Arab konteks Indonesia, nominal Rupiah menggunakan kata <span class="ar-inline font-bold text-brand-800">رُوبِيَّةٍ</span> (Rupiah) bersama bilangan ribuan (<span class="ar-inline font-bold">أَلْفَ</span>) dan ratusan ribu (<span class="ar-inline font-bold">مِائَةٌ</span>).
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Contoh Dialog</span>
+              <button type="button" onclick="speakArabic('سِتُّونَ أَلْفَ رُوبِيَّةٍ وَمِائَةٌ وَتِسْعُونَ أَلْفَ رُوبِيَّةٍ', this)" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-700 hover:text-brand-900 bg-white border border-brand-200 px-2.5 py-1 rounded-lg cursor-pointer transition">
+                <span>🔊</span>
+                <span>Dengar</span>
+              </button>
+            </div>
+            <p class="ar-text text-xl font-bold text-slate-900">سِتُّونَ أَلْفَ رُوبِيَّةٍ</p>
+            <p class="ar-text text-lg text-teal-800">مِائَةٌ وَتِسْعُونَ أَلْفَ رُوبِيَّةٍ</p>
+            <p class="text-xs text-slate-600">"Enam puluh ribu rupiah" (Rp60.000) &amp; "Seratus sembilan puluh ribu rupiah" (Rp190.000).</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. Interactive Listening Quiz -->
+    <section id="latihan" class="scroll-mt-16 space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-700">Evaluasi Mandiri • Latihan Istima'</span>
+          <div class="flex flex-wrap items-baseline gap-3 mt-1">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Latihan Soal Menyimak</h2>
+            <span class="ar-inline text-2xl sm:text-3xl font-bold text-brand-700">تَدْرِيبَاتُ الِاسْتِمَاعِ</span>
+          </div>
+          <p class="text-sm text-slate-600 mt-1">
+            Jawab pertanyaan berikut berdasarkan dialog belanja untuk menguji pemahaman barang, jumlah (<em>'adad-ma'dud</em>), dan harga Rupiah.
+          </p>
+        </div>
+
+        <!-- Score & Reset Bar -->
+        <div class="flex items-center gap-3 bg-white border border-slate-200 rounded-2xl px-4 py-2.5 shadow-xs self-start sm:self-auto">
+          <div>
+            <span class="block text-[11px] font-semibold uppercase text-slate-500">Skor Anda</span>
+            <span id="quiz-score-display" class="text-lg font-extrabold text-brand-700">0 / 8</span>
+          </div>
+          <div class="h-8 w-px bg-slate-200"></div>
+          <button type="button" onclick="resetQuiz()" class="inline-flex items-center gap-1.5 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-2 rounded-xl transition cursor-pointer">
+            <span>↺</span>
+            <span>Ulangi Kuis</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz Progress Bar -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-600 mb-2">
+          <span id="quiz-progress-label">Dijawab: 0 dari 8 soal</span>
+          <span id="quiz-feedback-summary" class="text-brand-700">Pilih jawaban pada tiap soal untuk melihat umpan balik instan.</span>
+        </div>
+        <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+          <div id="quiz-progress-bar" class="h-full bg-brand-600 rounded-full transition-all duration-300" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Questions Container -->
+      <div id="quiz-container" class="space-y-4"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <div class="space-y-1 text-center sm:text-left">
+        <p class="font-bold text-white text-sm">Media Istima' Mandiri — الْمُجَمَّعُ التِّجَارِيُّ (Pusat Perbelanjaan)</p>
+        <p class="text-slate-400">Bahasa Arab Madrasah Aliyah Kelas 2 MA (XI) Semester Genap • Unit TAM02 • Rosita Hayati (240202099)</p>
+      </div>
+      <a href="#top" class="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white font-semibold px-4 py-2 rounded-xl transition">
+        <span>↑</span>
+        <span>Kembali ke Atas</span>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    /**
+     * Data Naskah Dialog Belanja (10 Kalimat Berharakat Lengkap)
+     * Memuat peran (الْمُشْتَرِيَةُ dan الْبَائِعُ), teks Arab berharakat,
+     * segmen berlabel ('adad-ma'dud & harga Rupiah), dan terjemahan Indonesia.
+     */
+    const DIALOGUE_LINES = [
+      {
+        id: 1,
+        speaker: "الْمُشْتَرِيَةُ",
+        roleLabel: "Pembeli",
+        isSeller: false,
+        segments: [
+          { text: "السَّلَامُ عَلَيْكُمْ، أُرِيدُ أَنْ أَشْتَرِيَ بَعْضَ الْحَاجَاتِ الْيَوْمِيَّةِ فِي هَذَا ", type: "plain" },
+          { text: "الْمُجَمَّعِ التِّجَارِيِّ", type: "price" },
+          { text: ".", type: "plain" }
+        ],
+        translation: "Assalamu'alaikum, saya ingin membeli beberapa kebutuhan sehari-hari di pusat perbelanjaan ini."
+      },
+      {
+        id: 2,
+        speaker: "الْبَائِعُ",
+        roleLabel: "Penjual",
+        isSeller: true,
+        segments: [
+          { text: "وَعَلَيْكُمُ السَّلَامُ، أَهْلًا وَسَهْلًا، أَيُّ خِدْمَةٍ؟", type: "plain" }
+        ],
+        translation: "Wa'alaikumussalam, selamat datang, ada yang bisa dibantu?"
+      },
+      {
+        id: 3,
+        speaker: "الْمُشْتَرِيَةُ",
+        roleLabel: "Pembeli",
+        isSeller: false,
+        segments: [
+          { text: "أُرِيدُ ", type: "plain" },
+          { text: "ثَلَاثَةَ كِيلُو غْرَامَاتٍ", type: "num" },
+          { text: " مِنَ الطَّمَاطِمِ وَ", type: "plain" },
+          { text: "كِيلُو غْرَامًا وَاحِدًا", type: "num" },
+          { text: " مِنَ السُّكَّرِ.", type: "plain" }
+        ],
+        translation: "Saya ingin tiga kilogram tomat dan satu kilogram gula."
+      },
+      {
+        id: 4,
+        speaker: "الْبَائِعُ",
+        roleLabel: "Penjual",
+        isSeller: true,
+        segments: [
+          { text: "حَسَنًا، سَأَزِنُهَا عَلَى الْمِيزَانِ. سِعْرُ ", type: "plain" },
+          { text: "ثَلَاثَةِ كِيلُو غْرَامَاتٍ", type: "num" },
+          { text: " مِنَ الطَّمَاطِمِ ", type: "plain" },
+          { text: "سِتُّونَ أَلْفَ رُوبِيَّةٍ", type: "price" },
+          { text: "، وَسِعْرُ السُّكَّرِ ", type: "plain" },
+          { text: "خَمْسُونَ أَلْفَ رُوبِيَّةٍ", type: "price" },
+          { text: ".", type: "plain" }
+        ],
+        translation: "Baik, saya akan menimbangnya di timbangan. Harga tiga kilogram tomat enam puluh ribu rupiah, dan harga gula lima puluh ribu rupiah."
+      },
+      {
+        id: 5,
+        speaker: "الْمُشْتَرِيَةُ",
+        roleLabel: "Pembeli",
+        isSeller: false,
+        segments: [
+          { text: "وَبِكَمْ ", type: "plain" },
+          { text: "لِتْرٌ وَاحِدٌ", type: "num" },
+          { text: " مِنَ الزَّيْتِ وَ", type: "plain" },
+          { text: "أَرْبَعُ حَبَّاتٍ", type: "num" },
+          { text: " مِنَ الْبَصَلِ؟", type: "plain" }
+        ],
+        translation: "Dan berapa harga satu liter minyak dan empat butir bawang?"
+      },
+      {
+        id: 6,
+        speaker: "الْبَائِعُ",
+        roleLabel: "Penjual",
+        isSeller: true,
+        segments: [
+          { text: "سِعْرُ الزَّيْتِ ", type: "plain" },
+          { text: "سِتُّونَ أَلْفَ رُوبِيَّةٍ", type: "price" },
+          { text: " لِلَّتْرِ الْوَاحِدِ، وَسِعْرُ ", type: "plain" },
+          { text: "أَرْبَعِ حَبَّاتٍ", type: "num" },
+          { text: " مِنَ الْبَصَلِ ", type: "plain" },
+          { text: "عِشْرُونَ أَلْفَ رُوبِيَّةٍ", type: "price" },
+          { text: ".", type: "plain" }
+        ],
+        translation: "Harga minyak enam puluh ribu rupiah per liter, dan harga empat butir bawang dua puluh ribu rupiah."
+      },
+      {
+        id: 7,
+        speaker: "الْمُشْتَرِيَةُ",
+        roleLabel: "Pembeli",
+        isSeller: false,
+        segments: [
+          { text: "هَلْ هُنَاكَ تَخْفِيضَاتٌ أَوْ أَسْعَارٌ رَخِيصَةٌ الْيَوْمَ؟", type: "plain" }
+        ],
+        translation: "Apakah ada diskon atau harga murah hari ini?"
+      },
+      {
+        id: 8,
+        speaker: "الْبَائِعُ",
+        roleLabel: "Penjual",
+        isSeller: true,
+        segments: [
+          { text: "نَعَمْ، هُنَاكَ تَخْفِيضَاتٌ جَيِّدَةٌ، وَالْمَطْلُوبُ كُلُّهُ ", type: "plain" },
+          { text: "مِائَةٌ وَتِسْعُونَ أَلْفَ رُوبِيَّةٍ", type: "price" },
+          { text: ".", type: "plain" }
+        ],
+        translation: "Ya, ada diskon yang bagus, dan total yang harus dibayar semuanya seratus sembilan puluh ribu rupiah."
+      },
+      {
+        id: 9,
+        speaker: "الْمُشْتَرِيَةُ",
+        roleLabel: "Pembeli",
+        isSeller: false,
+        segments: [
+          { text: "تَفَضَّلْ، هَذِهِ ", type: "plain" },
+          { text: "مِائَةٌ وَتِسْعُونَ أَلْفَ رُوبِيَّةٍ", type: "price" },
+          { text: "، وَسَأَدْفَعُ عِنْدَ الْمُحَاسِبِ أَيْضًا إِذَا أَخَذْتُ شَيْئًا آخَرَ.", type: "plain" }
+        ],
+        translation: "Silakan, ini seratus sembilan puluh ribu rupiah, dan saya juga akan membayar di kasir jika mengambil barang lain."
+      },
+      {
+        id: 10,
+        speaker: "الْبَائِعُ",
+        roleLabel: "Penjual",
+        isSeller: true,
+        segments: [
+          { text: "شُكْرًا جَزِيلًا، وَبَارَكَ اللَّهُ فِيكِ.", type: "plain" }
+        ],
+        translation: "Terima kasih banyak, semoga Allah memberkahimu."
+      }
+    ];
+
+    /**
+     * Data Kartu Kosakata (10 Kosakata Utama Pusat Perbelanjaan)
+     */
+    const VOCABULARY_ITEMS = [
+      {
+        arabic: "الْمُجَمَّعُ التِّجَارِيُّ",
+        meaning: "Pusat perbelanjaan / supermarket",
+        note: "Tempat belanja modern dengan bagian-bagian rapi.",
+        icon: "🏬"
+      },
+      {
+        arabic: "السُّوقُ التَّقْلِيدِيُّ",
+        meaning: "Pasar tradisional",
+        note: "Memerlukan interaksi langsung pembeli & penjual.",
+        icon: "🛒"
+      },
+      {
+        arabic: "الطَّمَاطِمُ",
+        meaning: "Tomat",
+        note: "Pada dialog: ثَلَاثَةَ كِيلُو غْرَامَاتٍ مِنَ الطَّمَاطِمِ.",
+        icon: "🍅"
+      },
+      {
+        arabic: "الْبَصَلُ",
+        meaning: "Bawang",
+        note: "Pada dialog: أَرْبَعُ حَبَّاتٍ مِنَ الْبَصَلِ.",
+        icon: "🧅"
+      },
+      {
+        arabic: "السُّكَّرُ",
+        meaning: "Gula",
+        note: "Pada dialog: كِيلُو غْرَامًا وَاحِدًا مِنَ السُّكَّرِ.",
+        icon: "🧂"
+      },
+      {
+        arabic: "الزَّيْتُ",
+        meaning: "Minyak (goreng)",
+        note: "Pada dialog: لِتْرٌ وَاحِدٌ مِنَ الزَّيْتِ.",
+        icon: "🫗"
+      },
+      {
+        arabic: "الْمِيزَانُ",
+        meaning: "Timbangan",
+        note: "Alat menimbang barang sesuai berat/satuan.",
+        icon: "⚖️"
+      },
+      {
+        arabic: "التَّخْفِيضَاتُ",
+        meaning: "Diskon / potongan harga",
+        note: "Penawaran harga khusus di pusat perbelanjaan.",
+        icon: "🏷️"
+      },
+      {
+        arabic: "الْمُحَاسِبُ",
+        meaning: "Kasir",
+        note: "Petugas penerima pembayaran di kasir.",
+        icon: "🧾"
+      },
+      {
+        arabic: "الْمَطْلُوبُ",
+        meaning: "Total tagihan / yang diminta",
+        note: "Dipakai untuk menyebut total harga dalam Rupiah.",
+        icon: "💵"
+      }
+    ];
+
+    /**
+     * Data Latihan Soal Interaktif (Benar/Salah & Pilihan Ganda)
+     */
+    const QUIZ_QUESTIONS = [
+      {
+        id: "q1",
+        type: "tf",
+        badge: "Benar / Salah • Tempat Belanja",
+        promptAr: "تَشْتَرِي الْمُشْتَرِيَةُ الْحَاجَاتِ الْيَوْمِيَّةَ فِي السُّوقِ التَّقْلِيدِيِّ.",
+        promptId: "Pembeli membeli kebutuhan sehari-hari di pasar tradisional.",
+        options: [
+          { value: "true", label: "صَحِيحٌ (Benar)" },
+          { value: "false", label: "خَطَأٌ (Salah)" }
+        ],
+        correct: "false",
+        explanation: "Salah (خَطَأٌ). Pada kalimat pertama, pembeli membeli kebutuhan sehari-hari di الْمُجَمَّعُ التِّجَارِيُّ (pusat perbelanjaan)."
+      },
+      {
+        id: "q2",
+        type: "tf",
+        badge: "Benar / Salah • Jumlah Barang",
+        promptAr: "تُرِيدُ الْمُشْتَرِيَةُ ثَلَاثَةَ كِيلُو غْرَامَاتٍ مِنَ الطَّمَاطِمِ.",
+        promptId: "Pembeli menginginkan tiga kilogram tomat.",
+        options: [
+          { value: "true", label: "صَحِيحٌ (Benar)" },
+          { value: "false", label: "خَطَأٌ (Salah)" }
+        ],
+        correct: "true",
+        explanation: "Benar (صَحِيحٌ). Pembeli meminta ثَلَاثَةَ كِيلُو غْرَامَاتٍ مِنَ الطَّمَاطِمِ (tiga kilogram tomat)."
+      },
+      {
+        id: "q3",
+        type: "tf",
+        badge: "Benar / Salah • Harga Gula",
+        promptAr: "سِعْرُ السُّكَّرِ خَمْسُونَ أَلْفَ رُوبِيَّةٍ.",
+        promptId: "Harga gula adalah lima puluh ribu rupiah.",
+        options: [
+          { value: "true", label: "صَحِيحٌ (Benar)" },
+          { value: "false", label: "خَطَأٌ (Salah)" }
+        ],
+        correct: "true",
+        explanation: "Benar (صَحِيحٌ). Penjual menyebutkan harga gula خَمْسُونَ أَلْفَ رُوبِيَّةٍ (Rp50.000)."
+      },
+      {
+        id: "q4",
+        type: "tf",
+        badge: "Benar / Salah • Harga Bawang",
+        promptAr: "سِعْرُ أَرْبَعِ حَبَّاتٍ مِنَ الْبَصَلِ ثَلَاثُونَ أَلْفَ رُوبِيَّةٍ.",
+        promptId: "Harga empat butir bawang adalah tiga puluh ribu rupiah.",
+        options: [
+          { value: "true", label: "صَحِيحٌ (Benar)" },
+          { value: "false", label: "خَطَأٌ (Salah)" }
+        ],
+        correct: "false",
+        explanation: "Salah (خَطَأٌ). Harga empat butir bawang (أَرْبَعَ حَبَّاتٍ مِنَ الْبَصَلِ) adalah عِشْرُونَ أَلْفَ رُوبِيَّةٍ (dua puluh ribu rupiah / Rp20.000)."
+      },
+      {
+        id: "q5",
+        type: "mc",
+        badge: "Pilihan Ganda • 'Adad-Ma'dud",
+        promptAr: "كَمْ حَبَّةً مِنَ الْبَصَلِ تَشْتَرِيهَا الْمُشْتَرِيَةُ؟",
+        promptId: "Berapa butir bawang yang dibeli oleh pembeli?",
+        options: [
+          { value: "a", label: "أَرْبَعُ حَبَّاتٍ (4 butir)" },
+          { value: "b", label: "ثَلَاثُ حَبَّاتٍ (3 butir)" },
+          { value: "c", label: "خَمْسُ حَبَّاتٍ (5 butir)" }
+        ],
+        correct: "a",
+        explanation: "Tepat! Pembeli membeli أَرْبَعَ حَبَّاتٍ مِنَ الْبَصَلِ (empat butir bawang)."
+      },
+      {
+        id: "q6",
+        type: "mc",
+        badge: "Pilihan Ganda • Harga Minyak",
+        promptAr: "مَا سِعْرُ لِتْرٍ وَاحِدٍ مِنَ الزَّيْتِ؟",
+        promptId: "Berapa harga satu liter minyak?",
+        options: [
+          { value: "a", label: "خَمْسُونَ أَلْفَ رُوبِيَّةٍ (Rp50.000)" },
+          { value: "b", label: "سِتُّونَ أَلْفَ رُوبِيَّةٍ (Rp60.000)" },
+          { value: "c", label: "عِشْرُونَ أَلْفَ رُوبِيَّةٍ (Rp20.000)" }
+        ],
+        correct: "b",
+        explanation: "Tepat! Harga satu liter minyak adalah سِتُّونَ أَلْفَ رُوبِيَّةٍ (enam puluh ribu rupiah / Rp60.000)."
+      },
+      {
+        id: "q7",
+        type: "mc",
+        badge: "Pilihan Ganda • Total Pembayaran",
+        promptAr: "كَمِ الْمَطْلُوبُ كُلُّهُ فِي الْحِوَارِ؟",
+        promptId: "Berapa total tagihan (الْمَطْلُوبُ) seluruhnya dalam dialog?",
+        options: [
+          { value: "a", label: "مِائَةٌ وَخَمْسُونَ أَلْفَ رُوبِيَّةٍ (Rp150.000)" },
+          { value: "b", label: "مِائَةٌ وَسَبْعُونَ أَلْفَ رُوبِيَّةٍ (Rp170.000)" },
+          { value: "c", label: "مِائَةٌ وَتِسْعُونَ أَلْفَ رُوبِيَّةٍ (Rp190.000)" }
+        ],
+        correct: "c",
+        explanation: "Tepat! Total yang harus dibayar (الْمَطْلُوبُ كُلُّهُ) adalah مِائَةٌ وَتِسْعُونَ أَلْفَ رُوبِيَّةٍ (seratus sembilan puluh ribu rupiah / Rp190.000)."
+      },
+      {
+        id: "q8",
+        type: "mc",
+        badge: "Pilihan Ganda • Kaidah 'Adad-Ma'dud",
+        promptAr: "أَيُّ تَعْبِيرٍ صَحِيحٌ لِـ «سَاخُذُ كِيلُو غْرَامًا ... مِنَ السُّكَّرِ»؟",
+        promptId: "Ungkapan mana yang tepat untuk menyatakan 'satu kilogram gula' sesuai dialog?",
+        options: [
+          { value: "a", label: "كِيلُو غْرَامًا وَاحِدًا" },
+          { value: "b", label: "كِيلُو غْرَامًا وَاحِدَةً" },
+          { value: "c", label: "كِيلُو غْرَامًا ثَلَاثَةً" }
+        ],
+        correct: "a",
+        explanation: "Tepat! كِيلُو غْرَامًا وَاحِدًا menggunakan bilangan 1 yang sesuai jenisnya (mudzakkar) dengan kata yang dibilang."
+      }
+    ];
+
+    /**
+     * Application State
+     */
+    const state = {
+      speechRate: 1.0,
+      hideArabic: false,
+      hideTranslation: false,
+      isPlayingAll: false,
+      activeLineIndex: -1,
+      activeVocabIndex: -1,
+      userAnswers: {},
+      arabicVoice: null,
+      speechSupported: typeof window !== "undefined" && "speechSynthesis" in window
+    };
+
+    /**
+     * Render Dialog Lines
+     */
+    function renderDialogue() {
+      const container = document.getElementById("dialogue-list");
+      container.innerHTML = DIALOGUE_LINES.map((line, idx) => {
+        const arabicHtml = line.segments.map(seg => {
+          if (seg.type === "num") {
+            return `<span class="hl-num">${seg.text}</span>`;
+          }
+          if (seg.type === "price") {
+            return `<span class="hl-price">${seg.text}</span>`;
+          }
+          return seg.text;
+        }).join("");
+
+        const speakerClass = line.isSeller
+          ? "bg-amber-100 text-amber-900 border-amber-200"
+          : "bg-brand-100 text-brand-900 border-brand-200";
+
+        const arabicHiddenClass = state.hideArabic ? "hidden" : "";
+        const arabicPlaceholderClass = state.hideArabic ? "" : "hidden";
+        const transHiddenClass = state.hideTranslation ? "hidden" : "";
+
+        return `
+          <article id="dialogue-card-${idx}" class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs transition-all">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-slate-900 text-white text-xs font-bold flex items-center justify-center">${line.id}</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${speakerClass}">
+                  <span class="ar-inline text-sm">${line.speaker}</span>
+                  <span>(${line.roleLabel})</span>
+                </span>
+              </div>
+
+              <button id="play-line-btn-${idx}" type="button" onclick="playSingleLine(${idx})" class="inline-flex items-center gap-1.5 bg-brand-50 hover:bg-brand-100 text-brand-800 border border-brand-200 font-semibold text-xs sm:text-sm px-3.5 py-1.5 rounded-xl transition cursor-pointer">
+                <span id="play-line-icon-${idx}">🔊</span>
+                <span id="play-line-label-${idx}">Putar Kalimat</span>
+              </button>
+            </div>
+
+            <!-- Arabic Sentence -->
+            <div class="space-y-2">
+              <div class="ar-text text-2xl sm:text-3xl text-slate-900 ${arabicHiddenClass}">
+                ${arabicHtml}
+              </div>
+
+              <div class="${arabicPlaceholderClass} bg-amber-50/70 border border-dashed border-amber-300 rounded-xl p-3.5 flex items-center justify-between gap-3">
+                <span class="text-xs sm:text-sm font-medium text-amber-900">
+                  🙈 Teks Arab disembunyikan untuk latihan menyimak murni. Dengarkan audio lalu tebak maknanya!
+                </span>
+                <button type="button" onclick="toggleArabicVisibility()" class="text-xs font-bold text-amber-900 underline shrink-0 cursor-pointer">
+                  Tampilkan
+                </button>
+              </div>
+
+              <!-- Indonesian Translation -->
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1 ${transHiddenClass}">
+                <span class="font-semibold text-slate-700">Artinya:</span> ${line.translation}
+              </p>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    /**
+     * Render Vocabulary Flashcards
+     */
+    function renderVocabulary() {
+      const grid = document.getElementById("vocabulary-grid");
+      grid.innerHTML = VOCABULARY_ITEMS.map((item, idx) => `
+        <div id="vocab-card-${idx}" class="bg-white border border-slate-200 hover:border-brand-300 rounded-2xl p-4 shadow-xs flex flex-col justify-between gap-3 transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xl" aria-hidden="true">${item.icon}</span>
+              <button type="button" onclick="speakVocab(${idx}, this)" class="inline-flex items-center gap-1 bg-brand-50 hover:bg-brand-100 text-brand-800 border border-brand-200 text-xs font-bold px-2.5 py-1 rounded-lg transition cursor-pointer" title="Dengarkan pelafalan">
+                <span>🔊</span>
+                <span>Lafal</span>
+              </button>
+            </div>
+            <p class="ar-text text-2xl font-bold text-slate-900 pt-1">${item.arabic}</p>
+            <p class="text-sm font-bold text-brand-800">${item.meaning}</p>
+          </div>
+          <p class="text-xs text-slate-500 border-t border-slate-100 pt-2.5 leading-relaxed">${item.note}</p>
+        </div>
+      `).join("");
+    }
+
+    /**
+     * Render Interactive Quiz Questions
+     */
+    function renderQuiz() {
+      const container = document.getElementById("quiz-container");
+      container.innerHTML = QUIZ_QUESTIONS.map((q, index) => {
+        const selected = state.userAnswers[q.id];
+        const isAnswered = selected !== undefined;
+        const isCorrect = isAnswered && selected === q.correct;
+
+        const optionsHtml = q.options.map(opt => {
+          const isPicked = selected === opt.value;
+          let btnClass = "bg-slate-50 hover:bg-brand-50 border-slate-200 text-slate-800";
+
+          if (isAnswered) {
+            if (opt.value === q.correct) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 ring-1 ring-emerald-500";
+            } else if (isPicked && opt.value !== q.correct) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-900 ring-1 ring-rose-400";
+            } else {
+              btnClass = "bg-white border-slate-200 text-slate-500 opacity-75";
+            }
+          }
+
+          const arClass = /[\u0600-\u06FF]/.test(opt.label) ? "ar-inline text-lg font-bold" : "font-semibold text-sm";
+
+          return `
+            <button type="button" onclick="selectQuizAnswer('${q.id}', '${opt.value}')" class="w-full text-left border rounded-xl px-4 py-3 transition flex items-center justify-between gap-3 cursor-pointer ${btnClass}">
+              <span class="${arClass}">${opt.label}</span>
+              <span class="text-xs font-bold shrink-0">
+                ${isAnswered && opt.value === q.correct ? "✓ Tepat" : (isAnswered && isPicked ? "✕ Kurang tepat" : "")}
+              </span>
+            </button>
+          `;
+        }).join("");
+
+        let feedbackHtml = "";
+        if (isAnswered) {
+          const fbStyle = isCorrect
+            ? "bg-emerald-50 border-emerald-200 text-emerald-900"
+            : "bg-rose-50 border-rose-200 text-rose-900";
+          feedbackHtml = `
+            <div class="mt-3.5 p-3.5 rounded-xl border text-xs sm:text-sm leading-relaxed ${fbStyle}">
+              <span class="font-bold">${isCorrect ? "✓ Jawaban Benar!" : "✕ Belum Tepat."}</span>
+              <span>${q.explanation}</span>
+            </div>
+          `;
+        }
+
+        const gridCols = q.type === "tf" ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 md:grid-cols-3";
+
+        return `
+          <article id="quiz-card-${q.id}" class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-7 h-7 rounded-lg bg-brand-700 text-white text-xs font-extrabold flex items-center justify-center">${index + 1}</span>
+                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">${q.badge}</span>
+              </div>
+              <button type="button" onclick="speakArabic('${q.promptAr.replace(/'/g, "\\'")}', this)" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-700 hover:text-brand-900 bg-brand-50 border border-brand-200 px-2.5 py-1 rounded-lg transition cursor-pointer">
+                <span>🔊</span>
+                <span>Dengar Soal</span>
+              </button>
+            </div>
+
+            <p class="ar-text text-xl sm:text-2xl font-bold text-slate-900 mb-1.5">${q.promptAr}</p>
+            <p class="text-xs sm:text-sm text-slate-600 mb-4">${q.promptId}</p>
+
+            <div class="grid ${gridCols} gap-2.5">
+              ${optionsHtml}
+            </div>
+
+            ${feedbackHtml}
+          </article>
+        `;
+      }).join("");
+
+      updateQuizScoreboard();
+    }
+
+    /**
+     * Quiz Answer Selection & Score Calculation
+     */
+    function selectQuizAnswer(questionId, value) {
+      state.userAnswers[questionId] = value;
+      renderQuiz();
+    }
+
+    function resetQuiz() {
+      state.userAnswers = {};
+      renderQuiz();
+    }
+
+    function updateQuizScoreboard() {
+      const total = QUIZ_QUESTIONS.length;
+      const answeredCount = Object.keys(state.userAnswers).length;
+      let correctCount = 0;
+
+      QUIZ_QUESTIONS.forEach(q => {
+        if (state.userAnswers[q.id] === q.correct) {
+          correctCount += 1;
+        }
+      });
+
+      document.getElementById("quiz-score-display").textContent = `${correctCount} / ${total}`;
+      document.getElementById("quiz-progress-label").textContent = `Dijawab: ${answeredCount} dari ${total} soal`;
+
+      const pct = Math.round((answeredCount / total) * 100);
+      document.getElementById("quiz-progress-bar").style.width = `${pct}%`;
+
+      const summaryEl = document.getElementById("quiz-feedback-summary");
+      if (answeredCount === 0) {
+        summaryEl.textContent = "Pilih jawaban pada tiap soal untuk melihat umpan balik instan.";
+      } else if (answeredCount < total) {
+        summaryEl.textContent = `Benar sementara: ${correctCount} — lanjutkan sisa soal!`;
+      } else {
+        const score100 = Math.round((correctCount / total) * 100);
+        summaryEl.textContent = `Selesai! Nilai: ${score100}/100 (${correctCount} dari ${total} benar)`;
+      }
+    }
+
+    /**
+     * Hide / Show Toggles for Listening Practice
+     */
+    function toggleArabicVisibility() {
+      state.hideArabic = !state.hideArabic;
+      const iconEl = document.getElementById("icon-arabic");
+      const labelEl = document.getElementById("label-arabic");
+
+      if (state.hideArabic) {
+        iconEl.textContent = "👁️";
+        labelEl.textContent = "Tampilkan Teks Arab";
+      } else {
+        iconEl.textContent = "🙈";
+        labelEl.textContent = "Sembunyikan Teks Arab";
+      }
+      const currentActive = state.activeLineIndex;
+      renderDialogue();
+      if (currentActive >= 0) {
+        highlightActiveLine(currentActive);
+      }
+    }
+
+    function toggleTranslationVisibility() {
+      state.hideTranslation = !state.hideTranslation;
+      const iconEl = document.getElementById("icon-trans");
+      const labelEl = document.getElementById("label-trans");
+
+      if (state.hideTranslation) {
+        iconEl.textContent = "👁️";
+        labelEl.textContent = "Tampilkan Terjemahan";
+      } else {
+        iconEl.textContent = "🌐";
+        labelEl.textContent = "Sembunyikan Terjemahan";
+      }
+      const currentActive = state.activeLineIndex;
+      renderDialogue();
+      if (currentActive >= 0) {
+        highlightActiveLine(currentActive);
+      }
+    }
+
+    /**
+     * Speech Rate Control (0.8x / 1.0x)
+     */
+    function setSpeechRate(rate) {
+      state.speechRate = rate;
+      const btn08 = document.getElementById("speed-08");
+      const btn10 = document.getElementById("speed-10");
+
+      if (rate === 0.8) {
+        btn08.className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-brand-800 shadow-xs transition cursor-pointer";
+        btn10.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer";
+      } else {
+        btn10.className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-brand-800 shadow-xs transition cursor-pointer";
+        btn08.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer";
+      }
+    }
+
+    /**
+     * Web Speech API Initialization & Voice Selection ('ar-SA' / Arabic)
+     */
+    function initSpeechSynthesis() {
+      const badge = document.getElementById("tts-status-badge");
+      const desc = document.getElementById("tts-status-desc");
+      const fallbackNote = document.getElementById("tts-fallback-note");
+
+      if (!state.speechSupported) {
+        badge.className = "inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-200 border border-amber-300/30";
+        badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-300"></span>Mode Teks &amp; Kuis`;
+        desc.textContent = "Browser ini tidak mendukung Web Speech API secara langsung.";
+        fallbackNote.classList.remove("hidden");
+        return;
+      }
+
+      const pickVoice = () => {
+        const voices = window.speechSynthesis.getVoices() || [];
+        const arSa = voices.find(v => v.lang && v.lang.toLowerCase() === "ar-sa");
+        const anyAr = voices.find(v => v.lang && v.lang.toLowerCase().startsWith("ar"));
+        state.arabicVoice = arSa || anyAr || null;
+
+        if (state.arabicVoice) {
+          badge.className = "inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-400/20 text-emerald-200 border border-emerald-300/30";
+          badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-300"></span>Suara ${state.arabicVoice.lang}`;
+          desc.textContent = `Suara aktif: ${state.arabicVoice.name} (${state.arabicVoice.lang}). Kecepatan dapat diatur 0.8x atau 1.0x.`;
+          fallbackNote.classList.add("hidden");
+        } else {
+          badge.className = "inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-200 border border-amber-300/30";
+          badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-300"></span>Suara ar-SA Default`;
+          desc.textContent = "Meminta pelafalan bahasa Arab (ar-SA) dari sistem perangkat.";
+          fallbackNote.classList.remove("hidden");
+        }
+      };
+
+      pickVoice();
+      if (window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = pickVoice;
+      }
+    }
+
+    /**
+     * Helper to get clean Arabic text for TTS
+     */
+    function getLinePlainArabic(line) {
+      return line.segments.map(s => s.text).join("").trim();
+    }
+
+    function highlightActiveLine(index) {
+      DIALOGUE_LINES.forEach((_, i) => {
+        const card = document.getElementById(`dialogue-card-${i}`);
+        const icon = document.getElementById(`play-line-icon-${i}`);
+        const label = document.getElementById(`play-line-label-${i}`);
+        if (!card) return;
+
+        if (i === index) {
+          card.classList.add("speaking-active");
+          if (icon) icon.textContent = "⏸";
+          if (label) label.textContent = "Sedang Diputar...";
+        } else {
+          card.classList.remove("speaking-active");
+          if (icon) icon.textContent = "🔊";
+          if (label) label.textContent = "Putar Kalimat";
+        }
+      });
+    }
+
+    function updateNowPlayingBar(text, counterText, active) {
+      const dot = document.getElementById("now-playing-dot");
+      const label = document.getElementById("now-playing-text");
+      const counter = document.getElementById("now-playing-counter");
+
+      label.textContent = text;
+      counter.textContent = counterText;
+
+      if (active) {
+        dot.className = "w-2.5 h-2.5 rounded-full bg-brand-600 animate-ping";
+      } else {
+        dot.className = "w-2.5 h-2.5 rounded-full bg-slate-400";
+      }
+    }
+
+    function stopPlayback() {
+      state.isPlayingAll = false;
+      state.activeLineIndex = -1;
+      if (state.speechSupported) {
+        try {
+          window.speechSynthesis.cancel();
+        } catch (err) {
+          console.error("Gagal menghentikan audio:", err);
+        }
+      }
+      highlightActiveLine(-1);
+      updateNowPlayingBar("Pemutaran audio dihentikan.", "0 / 10", false);
+    }
+
+    function speakArabic(text, triggerBtn) {
+      if (!state.speechSupported) {
+        updateNowPlayingBar("Fitur suara tidak tersedia pada browser ini.", "—", false);
+        return;
+      }
+
+      state.isPlayingAll = false;
+      state.activeLineIndex = -1;
+      highlightActiveLine(-1);
+
+      try {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = "ar-SA";
+        if (state.arabicVoice) {
+          utter.voice = state.arabicVoice;
+        }
+        utter.rate = state.speechRate;
+        utter.pitch = 1.0;
+
+        if (triggerBtn) {
+          triggerBtn.classList.add("ring-2", "ring-brand-500");
+        }
+
+        utter.onstart = () => {
+          updateNowPlayingBar(`Memutar pelafalan (${state.speechRate}x): ${text}`, "Audio", true);
+        };
+        utter.onend = () => {
+          if (triggerBtn) triggerBtn.classList.remove("ring-2", "ring-brand-500");
+          updateNowPlayingBar("Selesai memutar pelafalan.", "Selesai", false);
+        };
+        utter.onerror = () => {
+          if (triggerBtn) triggerBtn.classList.remove("ring-2", "ring-brand-500");
+          updateNowPlayingBar("Tidak dapat memutar suara di perangkat ini. Cek pengaturan bahasa Arab TTS.", "Error", false);
+        };
+
+        window.speechSynthesis.speak(utter);
+      } catch (err) {
+        console.error("Error speech synthesis:", err);
+        updateNowPlayingBar("Terjadi kesalahan saat memutar audio.", "Error", false);
+      }
+    }
+
+    function speakVocab(index, btnEl) {
+      const item = VOCABULARY_ITEMS[index];
+      if (!item) return;
+      speakArabic(item.arabic, btnEl);
+    }
+
+    function playSingleLine(index) {
+      const line = DIALOGUE_LINES[index];
+      if (!line) return;
+
+      if (!state.speechSupported) {
+        updateNowPlayingBar("Web Speech API tidak didukung pada perangkat ini.", `${line.id} / 10`, false);
+        return;
+      }
+
+      state.isPlayingAll = false;
+      state.activeLineIndex = index;
+      highlightActiveLine(index);
+
+      try {
+        window.speechSynthesis.cancel();
+        const plainText = getLinePlainArabic(line);
+        const utter = new SpeechSynthesisUtterance(plainText);
+        utter.lang = "ar-SA";
+        if (state.arabicVoice) {
+          utter.voice = state.arabicVoice;
+        }
+        utter.rate = state.speechRate;
+        utter.pitch = line.isSeller ? 0.96 : 1.04;
+
+        utter.onstart = () => {
+          updateNowPlayingBar(
+            `Memutar kalimat ke-${line.id} (${line.roleLabel} • ${state.speechRate}x)...`,
+            `${line.id} / 10`,
+            true
+          );
+        };
+        utter.onend = () => {
+          if (!state.isPlayingAll) {
+            state.activeLineIndex = -1;
+            highlightActiveLine(-1);
+            updateNowPlayingBar(`Selesai memutar kalimat ke-${line.id}.`, `${line.id} / 10`, false);
+          }
+        };
+        utter.onerror = () => {
+          state.activeLineIndex = -1;
+          highlightActiveLine(-1);
+          updateNowPlayingBar("Gagal memutar kalimat. Pastikan suara Arab (ar-SA) aktif di perangkat.", `${line.id} / 10`, false);
+        };
+
+        window.speechSynthesis.speak(utter);
+      } catch (err) {
+        console.error("Error playSingleLine:", err);
+      }
+    }
+
+    function playAllDialogue() {
+      if (!state.speechSupported) {
+        updateNowPlayingBar("Fitur suara tidak didukung pada browser ini.", "0 / 10", false);
+        return;
+      }
+
+      state.isPlayingAll = true;
+      try {
+        window.speechSynthesis.cancel();
+      } catch (e) {}
+
+      const playStep = (stepIndex) => {
+        if (!state.isPlayingAll || stepIndex >= DIALOGUE_LINES.length) {
+          state.isPlayingAll = false;
+          state.activeLineIndex = -1;
+          highlightActiveLine(-1);
+          updateNowPlayingBar("Seluruh dialog (10 kalimat) selesai diputar.", "10 / 10", false);
+          return;
+        }
+
+        const line = DIALOGUE_LINES[stepIndex];
+        state.activeLineIndex = stepIndex;
+        highlightActiveLine(stepIndex);
+
+        const cardEl = document.getElementById(`dialogue-card-${stepIndex}`);
+        if (cardEl) {
+          cardEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        const utter = new SpeechSynthesisUtterance(getLinePlainArabic(line));
+        utter.lang = "ar-SA";
+        if (state.arabicVoice) {
+          utter.voice = state.arabicVoice;
+        }
+        utter.rate = state.speechRate;
+        utter.pitch = line.isSeller ? 0.96 : 1.04;
+
+        utter.onstart = () => {
+          updateNowPlayingBar(
+            `Memutar semua dialog: Kalimat ${line.id} dari 10 (${line.roleLabel} • ${state.speechRate}x)`,
+            `${line.id} / 10`,
+            true
+          );
+        };
+
+        utter.onend = () => {
+          if (!state.isPlayingAll) return;
+          setTimeout(() => playStep(stepIndex + 1), 350);
+        };
+
+        utter.onerror = () => {
+          state.isPlayingAll = false;
+          state.activeLineIndex = -1;
+          highlightActiveLine(-1);
+          updateNowPlayingBar("Pemutaran beruntun terhenti. Periksa dukungan suara Arab (ar-SA).", `${line.id} / 10`, false);
+        };
+
+        window.speechSynthesis.speak(utter);
+      };
+
+      playStep(0);
+    }
+
+    /**
+     * Initialize Application on DOM Load
+     */
+    document.addEventListener("DOMContentLoaded", () => {
+      renderDialogue();
+      renderVocabulary();
+      renderQuiz();
+      initSpeechSynthesis();
+    });
+  </script>
+</body>
+</html>
